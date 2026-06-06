@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity Motors | Luxury Car Dealership</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f8faf9;
+      --bg2: #eef6f3;
+      --card: #ffffff;
+      --text: #1a2e32;
+      --text2: #5a8589;
+      --border: #cce0db;
+      --primary: #0f4043;
+      --accent: #1b8c6e;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --nav: #ffffff;
+      --input: #ffffff;
+      --badge: #c5e0d8;
+      --badge-text: #136b56;
+      --footer: #0d2f32;
+      --footer-text: #bcd9d5;
+      --overlay: rgba(0, 0, 0, 0.55);
+      --compare-bar: #0f4043;
+      --star: #f5a623;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0e1a1c;
+      --bg2: #152224;
+      --card: #1a2e32;
+      --text: #e0f0ee;
+      --text2: #7aacb0;
+      --border: #2a4a4e;
+      --primary: #1b8c6e;
+      --accent: #23c49a;
+      --shadow: rgba(0, 0, 0, 0.4);
+      --nav: #111e20;
+      --input: #1a2e32;
+      --badge: #1a4a40;
+      --badge-text: #4ecba0;
+      --footer: #080f10;
+      --footer-text: #5a9a94;
+      --overlay: rgba(0, 0, 0, 0.75);
+      --compare-bar: #152224;
+      --star: #f5a623;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--nav);
+      box-shadow: 0 2px 20px var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo span {
+      font-size: 0.75rem;
+      color: var(--text2);
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text2);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--text2);
+      position: relative;
+      padding: 6px;
+      transition: 0.2s;
+    }
+
+    .icon-btn:hover {
+      color: var(--accent);
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: -2px;
+      right: -4px;
+      background: #e74c3c;
+      color: white;
+      font-size: 0.6rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .dark-toggle {
+      background: var(--bg2);
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 70px 0;
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg) 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-badge {
+      background: var(--badge);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--badge-text);
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      color: var(--text2);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      padding: 14px 32px;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 20px 35px -15px var(--shadow);
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    /* FILTER BAR */
+    .filter-section {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin: 40px 0 20px;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+    }
+
+    .search-box input {
+      padding-left: 42px;
+      border-radius: 30px;
+      background: var(--input);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      width: 100%;
+      padding: 11px 18px 11px 42px;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text2);
+    }
+
+    .filter-select {
+      padding: 11px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      background: var(--input);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .filter-results {
+      color: var(--text2);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* SECTION */
+    .section-header {
+      text-align: center;
+      margin: 50px 0 35px;
+    }
+
+    .section-header h2 {
+      font-size: 2.4rem;
+      color: var(--primary);
+    }
+
+    .section-header .bar {
+      width: 70px;
+      height: 3px;
+      background: var(--accent);
+      margin: 12px auto 0;
+    }
+
+    /* CARS GRID */
+    .cars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .car-card {
+      background: var(--card);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -8px var(--shadow);
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .car-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px -12px var(--shadow);
+    }
+
+    .car-img-wrap {
+      position: relative;
+    }
+
+    .car-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .car-img-placeholder {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--bg2);
+      cursor: pointer;
+    }
+
+    .card-badges {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .badge-available {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .badge-sold {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .badge-electric {
+      background: #cce5ff;
+      color: #004085;
+    }
+
+    .badge-views {
+      background: rgba(0, 0, 0, 0.55);
+      color: white;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: 0.2s;
+    }
+
+    .wishlist-btn.active {
+      color: #e74c3c;
+    }
+
+    .wishlist-btn:hover {
+      transform: scale(1.15);
+    }
+
+    .compare-check {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+    }
+
+    .compare-check label {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .compare-check input {
+      accent-color: var(--accent);
+    }
+
+    .car-info {
+      padding: 20px 22px 24px;
+    }
+
+    .car-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .car-name:hover {
+      color: var(--accent);
+    }
+
+    .car-price {
+      color: var(--accent);
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 8px 0 6px;
+    }
+
+    .car-desc {
+      color: var(--text2);
+      font-size: 0.83rem;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .star-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .stars {
+      color: var(--star);
+      font-size: 0.85rem;
+    }
+
+    .rating-text {
+      font-size: 0.78rem;
+      color: var(--text2);
+    }
+
+    .card-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .testdrive-btn {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .testdrive-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .details-btn {
+      background: var(--accent);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      color: white;
+    }
+
+    .details-btn:hover {
+      opacity: 0.85;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text2);
+      grid-column: 1/-1;
+    }
+
+    .no-results i {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* EMI CALCULATOR */
+    .emi-section {
+      background: var(--card);
+      border-radius: 30px;
+      padding: 40px;
+      margin: 0 0 60px;
+      box-shadow: 0 10px 25px -8px var(--shadow);
+    }
+
+    .emi-section h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .emi-section>p {
+      color: var(--text2);
+      margin-bottom: 28px;
+    }
+
+    .emi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .emi-field label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text2);
+      margin-bottom: 8px;
+    }
+
+    .emi-field input,
+    .emi-field select {
+      width: 100%;
+      padding: 12px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: var(--input);
+      color: var(--text);
+    }
+
+    .emi-field input:focus,
+    .emi-field select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .emi-result {
+      background: var(--bg2);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .emi-result .monthly {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .emi-result .label {
+      font-size: 0.85rem;
+      color: var(--text2);
+      margin-top: 4px;
+    }
+
+    .emi-breakdown {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text2);
+      line-height: 2;
+      text-align: left;
+    }
+
+    .emi-breakdown span {
+      float: right;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .calc-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 16px;
+      width: 100%;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+
+    .calc-btn:hover {
+      background: var(--accent);
+    }
+
+    /* REVIEWS */
+    .reviews-section {
+      margin-bottom: 60px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 6px 20px var(--shadow);
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .reviewer-car {
+      font-size: 0.78rem;
+      color: var(--text2);
+    }
+
+    .review-text {
+      color: var(--text2);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact-wrapper {
+      background: var(--bg2);
+      border-radius: 50px;
+      margin: 50px 0 70px;
+      padding: 50px 45px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+    }
+
+    .contact-left h3 {
+      font-size: 1.9rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .contact-left>p {
+      color: var(--text2);
+      margin-bottom: 30px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .info-item i {
+      font-size: 1.5rem;
+      color: var(--accent);
+      width: 35px;
+    }
+
+    .contact-form h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: var(--input);
+      color: var(--text);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea {
+      border-radius: 20px;
+      resize: vertical;
+    }
+
+    .btn-send {
+      background: var(--primary);
+      color: white;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .btn-send:hover {
+      background: var(--accent);
+    }
+
+    .form-msg {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .demo-note {
+      background: var(--badge);
+      text-align: center;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      margin-top: 15px;
+      color: var(--badge-text);
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--card);
+      border-radius: 28px;
+      max-width: 780px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .modal-body {
+      padding: 28px 32px 36px;
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .modal-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 8px 0 20px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .spec-item {
+      background: var(--bg2);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .spec-label {
+      font-size: 0.75rem;
+      color: var(--text2);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .spec-val {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* WISHLIST MODAL */
+    .wishlist-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .wishlist-modal.open {
+      display: flex;
+    }
+
+    .wishlist-box {
+      background: var(--card);
+      border-radius: 28px;
+      max-width: 500px;
+      width: 100%;
+      padding: 32px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .wishlist-box h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .wishlist-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wishlist-item:last-child {
+      border-bottom: none;
+    }
+
+    .wishlist-item-name {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .wishlist-item-price {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .remove-wish {
+      background: none;
+      border: none;
+      color: #e74c3c;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .empty-wish {
+      text-align: center;
+      color: var(--text2);
+      padding: 30px 0;
+    }
+
+    /* COMPARE */
+    .compare-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--compare-bar);
+      color: white;
+      padding: 16px 40px;
+      z-index: 1500;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .compare-bar.visible {
+      display: flex;
+    }
+
+    .compare-bar-items {
+      display: flex;
+      gap: 12px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .compare-chip {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .compare-now-btn {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .clear-compare {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* COMPARE MODAL */
+    .compare-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 3000;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 30px 20px;
+      overflow-y: auto;
+    }
+
+    .compare-modal.open {
+      display: flex;
+    }
+
+    .compare-box {
+      background: var(--card);
+      border-radius: 28px;
+      width: 100%;
+      max-width: 900px;
+      padding: 32px;
+      margin: auto;
+    }
+
+    .compare-box h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-table th {
+      background: var(--bg2);
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+
+    .compare-table td {
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-car-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+
+    .winner-badge {
+      background: var(--accent);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 28px;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
+      z-index: 1400;
+      transition: 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-tooltip {
+      display: none;
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #333;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .whatsapp-btn:hover .whatsapp-tooltip {
+      display: block;
+    }
+
+    /* BACK TO TOP */
+    .back-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--primary);
+      color: white;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      z-index: 1400;
+      box-shadow: 0 4px 14px var(--shadow);
+      transition: 0.3s;
+    }
+
+    .back-top.visible {
+      display: flex;
+    }
+
+    .back-top:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      background: var(--footer);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 35px;
+      border-radius: 40px 40px 0 0;
+    }
+
+    @media (max-width: 850px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .emi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .nav-right {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrapper {
+        padding: 28px 18px;
+        border-radius: 24px;
+      }
+
+      .compare-bar {
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <h1>Velocity Motors</h1>
+          <span>Drive the future, today.</span>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cars">Inventory</a></li>
+            <li><a href="#emi">EMI Calc</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" onclick="openWishlist()" title="Wishlist">
+              <i class="fas fa-heart"></i>
+              <span class="wishlist-count" id="wishCount">0</span>
+            </button>
+            <button class="dark-toggle" onclick="toggleDark()">
+              <i class="fas fa-moon" id="darkIcon"></i> <span id="darkLabel">Dark</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge"><i class="fas fa-crown"></i> Premium Selection</div>
+        <h1>Find your <br>perfect ride</h1>
+        <p>Luxury, performance, and reliability — curated collection of elite vehicles. Transparent pricing, seamless
+          buying experience.</p>
+        <button class="btn-primary"
+          onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})">Explore Cars <i
+            class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/2019_Lamborghini_Urus_AWD_%2836986376224%29.jpg/1280px-2019_Lamborghini_Urus_AWD_%2836986376224%29.jpg"
+          alt="Luxury car" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- INVENTORY -->
+  <div class="container" id="cars">
+    <div class="section-header">
+      <h2>Our latest arrivals</h2>
+      <div class="bar"></div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-section">
+      <div class="filter-row">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search by brand or model..." oninput="filterCars()">
+        </div>
+        <select class="filter-select" id="fuelFilter" onchange="filterCars()">
+          <option value="">All Fuel Types</option>
+          <option value="petrol">Petrol</option>
+          <option value="electric">Electric</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+        <select class="filter-select" id="priceFilter" onchange="filterCars()">
+          <option value="">All Prices</option>
+          <option value="0-100000">Under $100k</option>
+          <option value="100000-200000">$100k – $200k</option>
+          <option value="200000-9999999">Above $200k</option>
+        </select>
+        <select class="filter-select" id="sortFilter" onchange="filterCars()">
+          <option value="">Sort By</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A–Z</option>
+        </select>
+        <span class="filter-results" id="filterResults">6 cars</span>
+      </div>
+    </div>
+
+    <div class="cars-grid" id="carsGrid"></div>
+  </div>
+
+  <!-- EMI CALCULATOR -->
+  <div class="container" id="emi">
+    <div class="emi-section">
+      <h3><i class="fas fa-calculator" style="color:var(--accent);margin-right:10px;"></i>EMI Calculator</h3>
+      <p>Estimate your monthly installment for any car in our collection.</p>
+      <div class="emi-grid">
+        <div>
+          <div class="emi-field" style="margin-bottom:16px;">
+            <label>Car Price (USD)</label>
+            <input type="number" id="emiPrice" value="89990" min="1000" oninput="calcEMI()">
+          </div>
+          <div class="emi-field" style="margin-bottom:16px;">
+            <label>Down Payment (USD)</label>
+            <input type="number" id="emiDown" value="20000" min="0" oninput="calcEMI()">
+          </div>
+          <div class="emi-field" style="margin-bottom:16px;">
+            <label>Loan Tenure</label>
+            <select id="emiTenure" onchange="calcEMI()">
+              <option value="12">1 Year (12 months)</option>
+              <option value="24">2 Years (24 months)</option>
+              <option value="36" selected>3 Years (36 months)</option>
+              <option value="48">4 Years (48 months)</option>
+              <option value="60">5 Years (60 months)</option>
+            </select>
+          </div>
+          <div class="emi-field" style="margin-bottom:16px;">
+            <label>Interest Rate (% per year)</label>
+            <input type="number" id="emiRate" value="12" min="0" max="50" step="0.1" oninput="calcEMI()">
+          </div>
+          <button class="calc-btn" onclick="calcEMI()"><i class="fas fa-calculator"></i> Calculate EMI</button>
+        </div>
+        <div class="emi-result">
+          <div class="label">Monthly Payment</div>
+          <div class="monthly" id="emiMonthly">$2,432</div>
+          <div class="label" id="emiSubLabel">for 36 months</div>
+          <div class="emi-breakdown" id="emiBreakdown">
+            <div>Loan Amount <span id="bLoan">$69,990</span></div>
+            <div>Total Interest <span id="bInterest">$-</span></div>
+            <div>Total Payment <span id="bTotal">$-</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="container">
+    <div class="section-header reviews-section">
+      <h2>What our clients say</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="container" id="contact">
+    <div class="contact-wrapper">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <h3>Let's drive together</h3>
+          <p>Reach out for inquiries, test drives, or any assistance. Our team responds within 24h.</p>
+          <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>901 Auto Avenue, Karachi, PK</span></div>
+          <div class="info-item"><i class="fas fa-phone-alt"></i><span>+92 300 123 4567</span></div>
+          <div class="info-item"><i class="fas fa-envelope"></i><span>hello@velocitymotors.com</span></div>
+        </div>
+        <div class="contact-form">
+          <h3>Send a message</h3>
+          <form id="demoContactForm">
+            <input type="text" id="fullname" placeholder="Full name" required><br><br>
+            <input type="email" id="emailid" placeholder="Email address" required><br><br>
+            <input type="tel" id="phoneno" placeholder="Phone (optional)"><br><br>
+            <textarea rows="4" id="msgtext" placeholder="I'm interested in..."></textarea><br><br>
+            <button type="submit" class="btn-send">Send inquiry <i class="fas fa-paper-plane"></i></button>
+            <div id="formFeedback" class="form-msg"></div>
+          </form>
+          <div class="demo-note"><i class="fas fa-laptop-code"></i> Frontend demo — no backend</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Velocity Motors — Premium Car Dealer. All aspirations reserved.</p>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a class="whatsapp-btn"
+    href="https://wa.me/923700157610?text=Hello%20Velocity%20Motors%2C%20I%27m%20interested%20in%20your%20cars!"
+    target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- CAR DETAIL MODAL -->
+  <div class="modal-overlay" id="carModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <img class="modal-img" id="modalImg" src="" alt="">
+      <div class="modal-body">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="specs-grid" id="specsGrid"></div>
+        <div class="modal-btns">
+          <button class="details-btn" id="modalTestDrive" onclick="modalBook()">
+            <i class="fas fa-calendar-check"></i> Book Test Drive
+          </button>
+          <button class="testdrive-btn" id="modalEMIBtn" onclick="modalEMI()">
+            <i class="fas fa-calculator"></i> Calculate EMI
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST MODAL -->
+  <div class="wishlist-modal" id="wishlistModal">
+    <div class="wishlist-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h3><i class="fas fa-heart" style="color:#e74c3c;margin-right:8px;"></i>My Wishlist</h3>
+        <button onclick="closeWishlist()"
+          style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text2);">×</button>
+      </div>
+      <div id="wishlistItems"></div>
+    </div>
+  </div>
+
+  <!-- COMPARE BAR -->
+  <div class="compare-bar" id="compareBar">
+    <i class="fas fa-balance-scale" style="font-size:1.2rem;"></i>
+    <strong>Compare:</strong>
+    <div class="compare-bar-items" id="compareChips"></div>
+    <button class="compare-now-btn" onclick="openCompare()"><i class="fas fa-columns"></i> Compare Now</button>
+    <button class="clear-compare" onclick="clearCompare()">Clear</button>
+  </div>
+
+  <!-- COMPARE MODAL -->
+  <div class="compare-modal" id="compareModal">
+    <div class="compare-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h3><i class="fas fa-columns" style="color:var(--accent);margin-right:8px;"></i>Side-by-Side Comparison</h3>
+        <button onclick="closeCompare()"
+          style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text2);">×</button>
+      </div>
+      <div id="compareContent" style="overflow-x:auto;"></div>
+    </div>
+  </div>
+
+  <script>
+    const carsList = [
+      {
+        name: "Lamborghini Aventador", price: "$527,000", priceNum: 527000, desc: "V12 naturally aspirated beast, 0-60 in 2.8s. Iconic Italian supercar.", fuel: "petrol", status: "available", views: 284,
+        rating: 4.9, reviews: 38, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Lamborghini_Aventador_LP_700-4.jpg/1280px-Lamborghini_Aventador_LP_700-4.jpg",
+        specs: { Engine: "6.5L V12", Power: "700 hp", "0-60": "2.8s", "Top Speed": "217 mph", Seats: "2", Fuel: "Petrol", Torque: "509 lb-ft", Transmission: "7-Speed ISR" }
+      },
+      {
+        name: "Tesla Model S Plaid", price: "$89,990", priceNum: 89990, desc: "Tri-motor AWD, 1,020 hp, 396 mi range. Ludicrous speed.", fuel: "electric", status: "available", views: 512,
+        rating: 4.8, reviews: 92, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tesla_Model_S_Facelift_ab_04-2016_trimmed.jpg/1280px-Tesla_Model_S_Facelift_ab_04-2016_trimmed.jpg",
+        specs: { Engine: "Tri-Motor Electric", Power: "1,020 hp", "0-60": "1.99s", "Top Speed": "200 mph", Seats: "5", Fuel: "Electric", Range: "396 mi", Transmission: "Single-Speed" }
+      },
+      {
+        name: "Porsche 911 Turbo S", price: "$203,500", priceNum: 203500, desc: "3.7L twin-turbo, 640 hp, ultimate daily supercar.", fuel: "petrol", status: "available", views: 197,
+        rating: 4.9, reviews: 61, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Porsche_911_Turbo_S_%28992%29_silver_vr.jpg/1280px-Porsche_911_Turbo_S_%28992%29_silver_vr.jpg",
+        specs: { Engine: "3.7L Flat-6 Turbo", Power: "640 hp", "0-60": "2.6s", "Top Speed": "205 mph", Seats: "4", Fuel: "Petrol", Torque: "590 lb-ft", Transmission: "8-Speed PDK" }
+      },
+      {
+        name: "Mercedes-AMG GT", price: "$136,000", priceNum: 136000, desc: "Handcrafted V8, aggressive stance & luxury. Pure driving machine.", fuel: "petrol", status: "sold", views: 143,
+        rating: 4.7, reviews: 44, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/2020_Mercedes-AMG_GT_C_Roadster%2C_front_8.20.20.jpg/1280px-2020_Mercedes-AMG_GT_C_Roadster%2C_front_8.20.20.jpg",
+        specs: { Engine: "4.0L V8 Biturbo", Power: "523 hp", "0-60": "3.5s", "Top Speed": "193 mph", Seats: "2", Fuel: "Petrol", Torque: "493 lb-ft", Transmission: "7-Speed DCT" }
+      },
+      {
+        name: "BMW M4 Competition", price: "$79,000", priceNum: 79000, desc: "503 hp, rear-wheel drive, track ready. Ultimate driving thrill.", fuel: "petrol", status: "available", views: 321,
+        rating: 4.8, reviews: 75, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/BMW_M4_F82_in_Estoril_Blue_%28front%29.jpg/1280px-BMW_M4_F82_in_Estoril_Blue_%28front%29.jpg",
+        specs: { Engine: "3.0L I6 Twin-Turbo", Power: "503 hp", "0-60": "3.8s", "Top Speed": "180 mph", Seats: "4", Fuel: "Petrol", Torque: "479 lb-ft", Transmission: "8-Speed M Steptronic" }
+      },
+      {
+        name: "Audi RS e-tron GT", price: "$147,000", priceNum: 147000, desc: "Electric grand tourer, 637 hp, sleek design. Future of performance.", fuel: "electric", status: "available", views: 238,
+        rating: 4.7, reviews: 53, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/2022_Audi_RS_e-tron_GT%2C_front_left.jpg/1280px-2022_Audi_RS_e-tron_GT%2C_front_left.jpg",
+        specs: { Engine: "Dual-Motor Electric", Power: "637 hp", "0-60": "3.1s", "Top Speed": "155 mph", Seats: "4", Fuel: "Electric", Range: "232 mi", Transmission: "2-Speed Auto" }
+      }
+    ];
+
+    const reviewsList = [
+      { name: "Ahmed R.", car: "Lamborghini Aventador", stars: 5, text: "Absolutely breathtaking experience. The team was professional and the car exceeded every expectation. Worth every penny!", init: "A" },
+      { name: "Sara K.", car: "Tesla Model S Plaid", stars: 5, text: "Smooth buying process, transparent pricing. The Plaid is insane — I never thought I'd go electric but here we are!", init: "S" },
+      { name: "Usman T.", car: "BMW M4 Competition", stars: 5, text: "Best dealership in Karachi, hands down. Got my M4 in 3 days. The test drive sold me instantly.", init: "U" },
+      { name: "Fatima L.", car: "Porsche 911 Turbo S", stars: 5, text: "Velocity Motors made buying my dream Porsche stress-free. The EMI plan they arranged was fantastic.", init: "F" },
+      { name: "Bilal M.", car: "Audi RS e-tron GT", stars: 4, text: "Great selection and knowledgeable staff. The e-tron GT is stunning in person. Very happy with my purchase.", init: "B" },
+      { name: "Zara N.", car: "Mercedes-AMG GT", stars: 5, text: "Premium service from start to finish. They even delivered the car to my home. 10/10 would recommend!", init: "Z" }
+    ];
+
+    let wishlist = [];
+    let compareList = [];
+    let currentModalCar = null;
+
+    // RENDER STARS
+    function renderStars(r) {
+      let s = '';
+      for (let i = 1; i <= 5; i++) s += `<i class="fa${i <= Math.floor(r) ? 's' : (i - r < 1 ? 'r' : 'r')} fa-star"></i>`;
+      return s;
+    }
+
+    // DISPLAY CARS
+    function displayCars(list) {
+      const container = document.getElementById('carsGrid');
+      container.innerHTML = '';
+      if (!list.length) {
+        container.innerHTML = `<div class="no-results"><i class="fas fa-car-crash"></i><strong>No cars found</strong><p>Try adjusting your filters.</p></div>`;
+        return;
+      }
+      list.forEach((car, idx) => {
+        const origIdx = carsList.indexOf(car);
+        const wished = wishlist.includes(origIdx);
+        const compared = compareList.includes(origIdx);
+        const card = document.createElement('div');
+        card.className = 'car-card';
+        card.innerHTML = `
+      <div class="car-img-wrap">
+        <img class="car-img" id="cimg_${origIdx}" src="${car.img}" alt="${car.name}" loading="lazy" onclick="openModal(${origIdx})">
+        <div class="card-badges">
+          <span class="badge ${car.status === 'sold' ? 'badge-sold' : 'badge-available'}">${car.status === 'sold' ? '● Sold' : '● Available'}</span>
+          ${car.fuel === 'electric' ? '<span class="badge badge-electric">⚡ Electric</span>' : ''}
+          <span class="badge badge-views"><i class="fas fa-eye"></i> ${car.views}</span>
+        </div>
+        <button class="wishlist-btn ${wished ? 'active' : ''}" onclick="toggleWishlist(${origIdx})" id="wb_${origIdx}" title="Wishlist">
+          <i class="${wished ? 'fas' : 'far'} fa-heart" style="color:${wished ? '#e74c3c' : '#888'};"></i>
+        </button>
+        <div class="compare-check">
+          <label><input type="checkbox" ${compared ? 'checked' : ''} onchange="toggleCompare(${origIdx}, this)"> Compare</label>
+        </div>
+      </div>
+      <div class="car-info">
+        <div class="car-name" onclick="openModal(${origIdx})">${car.name}</div>
+        <div class="car-price">${car.price}</div>
+        <div class="car-desc">${car.desc}</div>
+        <div class="star-row">
+          <span class="stars">${renderStars(car.rating)}</span>
+          <span class="rating-text">${car.rating} (${car.reviews} reviews)</span>
+        </div>
+        <div class="card-btns">
+          <button class="testdrive-btn" onclick="bookTestDrive('${car.name}')"><i class="fas fa-calendar-check"></i> Test Drive</button>
+          <button class="details-btn" onclick="openModal(${origIdx})"><i class="fas fa-info-circle"></i> Details</button>
+        </div>
+      </div>`;
+        container.appendChild(card);
+        document.getElementById(`cimg_${origIdx}`).onerror = function () {
+          this.onerror = null;
+          const ph = document.createElement('div');
+          ph.className = 'car-img-placeholder';
+          ph.innerHTML = `<i class="fas fa-car" style="font-size:3rem;color:var(--accent);"></i><span style="color:var(--text2);font-size:0.85rem;font-weight:600;">${car.name}</span>`;
+          ph.onclick = () => openModal(origIdx);
+          this.replaceWith(ph);
+        };
+      });
+    }
+
+    // FILTER & SORT
+    function filterCars() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const fuel = document.getElementById('fuelFilter').value;
+      const price = document.getElementById('priceFilter').value;
+      const sort = document.getElementById('sortFilter').value;
+      let list = carsList.filter(c => {
+        const matchQ = c.name.toLowerCase().includes(q);
+        const matchFuel = !fuel || c.fuel === fuel;
+        let matchPrice = true;
+        if (price) { const [min, max] = price.split('-').map(Number); matchPrice = c.priceNum >= min && c.priceNum <= max; }
+        return matchQ && matchFuel && matchPrice;
+      });
+      if (sort === 'price-asc') list.sort((a, b) => a.priceNum - b.priceNum);
+      else if (sort === 'price-desc') list.sort((a, b) => b.priceNum - a.priceNum);
+      else if (sort === 'name-asc') list.sort((a, b) => a.name.localeCompare(b.name));
+      document.getElementById('filterResults').textContent = `${list.length} car${list.length !== 1 ? 's' : ''}`;
+      displayCars(list);
+    }
+
+    // WISHLIST
+    function toggleWishlist(idx) {
+      const i = wishlist.indexOf(idx);
+      if (i === -1) { wishlist.push(idx); } else { wishlist.splice(i, 1); }
+      updateWishCount();
+      filterCars();
+    }
+    function updateWishCount() {
+      document.getElementById('wishCount').textContent = wishlist.length;
+    }
+    function openWishlist() {
+      const box = document.getElementById('wishlistItems');
+      if (!wishlist.length) { box.innerHTML = '<div class="empty-wish"><i class="fas fa-heart-broken" style="font-size:2rem;color:#e74c3c;display:block;margin-bottom:12px;"></i>No cars in wishlist yet.</div>'; }
+      else { box.innerHTML = wishlist.map(i => `<div class="wishlist-item"><div><div class="wishlist-item-name">${carsList[i].name}</div><div class="wishlist-item-price">${carsList[i].price}</div></div><button class="remove-wish" onclick="toggleWishlist(${i});openWishlist();"><i class="fas fa-trash"></i></button></div>`).join(''); }
+      document.getElementById('wishlistModal').classList.add('open');
+    }
+    function closeWishlist() { document.getElementById('wishlistModal').classList.remove('open'); }
+
+    // COMPARE
+    function toggleCompare(idx, cb) {
+      if (cb.checked) {
+        if (compareList.length >= 3) { alert('Max 3 cars for comparison!'); cb.checked = false; return; }
+        compareList.push(idx);
+      } else { compareList = compareList.filter(i => i !== idx); }
+      updateCompareBar();
+    }
+    function updateCompareBar() {
+      const bar = document.getElementById('compareBar');
+      const chips = document.getElementById('compareChips');
+      if (compareList.length < 2) { bar.classList.remove('visible'); }
+      else { bar.classList.add('visible'); chips.innerHTML = compareList.map(i => `<span class="compare-chip">${carsList[i].name}</span>`).join(''); }
+    }
+    function clearCompare() { compareList = []; updateCompareBar(); filterCars(); }
+    function openCompare() {
+      const cars = compareList.map(i => carsList[i]);
+      const allKeys = Object.keys(cars[0].specs);
+      let html = `<table class="compare-table"><thead><tr><th>Spec</th>`;
+      cars.forEach(c => { html += `<th><img class="compare-car-img" src="${c.img}" alt="${c.name}" onerror="this.style.display='none'"><div>${c.name}</div><div style="color:var(--accent);font-weight:800;">${c.price}</div></th>`; });
+      html += `</tr></thead><tbody>`;
+      allKeys.forEach(key => {
+        html += `<tr><td><strong>${key}</strong></td>`;
+        const vals = cars.map(c => c.specs[key] || '—');
+        cars.forEach((c, ci) => { html += `<td>${vals[ci]}</td>`; });
+        html += `</tr>`;
+      });
+      html += `</tbody></table>`;
+      document.getElementById('compareContent').innerHTML = html;
+      document.getElementById('compareModal').classList.add('open');
+    }
+    function closeCompare() { document.getElementById('compareModal').classList.remove('open'); }
+
+    // MODAL
+    function openModal(idx) {
+      const car = carsList[idx];
+      currentModalCar = idx;
+      document.getElementById('modalImg').src = car.img;
+      document.getElementById('modalImg').onerror = function () { this.style.display = 'none'; };
+      document.getElementById('modalTitle').textContent = car.name;
+      document.getElementById('modalPrice').textContent = car.price;
+      const sg = document.getElementById('specsGrid');
+      sg.innerHTML = Object.entries(car.specs).map(([k, v]) => `<div class="spec-item"><div class="spec-label">${k}</div><div class="spec-val">${v}</div></div>`).join('');
+      document.getElementById('carModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() { document.getElementById('carModal').classList.remove('open'); document.body.style.overflow = ''; }
+    function modalBook() { closeModal(); bookTestDrive(carsList[currentModalCar].name); }
+    function modalEMI() { closeModal(); document.getElementById('emiPrice').value = carsList[currentModalCar].priceNum; calcEMI(); document.getElementById('emi').scrollIntoView({ behavior: 'smooth' }); }
+
+    // BOOK TEST DRIVE
+    function bookTestDrive(name) {
+      document.getElementById('msgtext').value = `Hello, I'm interested in a test drive for ${name}. Please share available slots.`;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // EMI CALCULATOR
+    function calcEMI() {
+      const P = parseFloat(document.getElementById('emiPrice').value) || 0;
+      const D = parseFloat(document.getElementById('emiDown').value) || 0;
+      const N = parseInt(document.getElementById('emiTenure').value) || 36;
+      const annualRate = parseFloat(document.getElementById('emiRate').value) || 12;
+      const loan = Math.max(0, P - D);
+      const r = annualRate / 12 / 100;
+      let emi = 0;
+      if (r === 0) { emi = loan / N; }
+      else { emi = loan * r * Math.pow(1 + r, N) / (Math.pow(1 + r, N) - 1); }
+      const total = emi * N;
+      const interest = total - loan;
+      document.getElementById('emiMonthly').textContent = emi > 0 ? '$' + Math.round(emi).toLocaleString() : '$0';
+      document.getElementById('emiSubLabel').textContent = `for ${N} months`;
+      document.getElementById('bLoan').textContent = '$' + Math.round(loan).toLocaleString();
+      document.getElementById('bInterest').textContent = '$' + Math.round(interest).toLocaleString();
+      document.getElementById('bTotal').textContent = '$' + Math.round(total).toLocaleString();
+    }
+
+    // REVIEWS
+    function displayReviews() {
+      document.getElementById('reviewsGrid').innerHTML = reviewsList.map(r => `
+    <div class="review-card">
+      <div class="reviewer">
+        <div class="reviewer-avatar">${r.init}</div>
+        <div><div class="reviewer-name">${r.name}</div><div class="reviewer-car">${r.car}</div></div>
+      </div>
+      <div class="stars" style="margin-bottom:10px;">${renderStars(r.stars)}</div>
+      <div class="review-text">"${r.text}"</div>
+    </div>`).join('');
+    }
+
+    // DARK MODE
+    function toggleDark() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('darkIcon').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+      document.getElementById('darkLabel').textContent = isDark ? 'Dark' : 'Light';
+    }
+
+    // BACK TO TOP
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backTop');
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // CLOSE MODALS ON OVERLAY CLICK
+    document.getElementById('carModal').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
+    document.getElementById('wishlistModal').addEventListener('click', function (e) { if (e.target === this) closeWishlist(); });
+    document.getElementById('compareModal').addEventListener('click', function (e) { if (e.target === this) closeCompare(); });
+
+    // CONTACT FORM
+    document.getElementById('demoContactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('emailid').value.trim();
+      const message = document.getElementById('msgtext').value.trim();
+      const feedback = document.getElementById('formFeedback');
+      if (!name || !email || !message) {
+        feedback.innerHTML = '⚠️ Please fill Name, Email and Message.'; feedback.style.color = '#b85c00';
+        setTimeout(() => { feedback.innerHTML = ''; }, 3000); return;
+      }
+      feedback.innerHTML = '✅ Message received! Our team will contact you soon.'; feedback.style.color = '#146b54';
+      this.reset(); setTimeout(() => { feedback.innerHTML = ''; }, 4000);
+    });
+
+    // INIT
+    window.addEventListener('DOMContentLoaded', () => { filterCars(); displayReviews(); calcEMI(); });
+  </script>
+</body>
+
+</html>
+
+
+
+
